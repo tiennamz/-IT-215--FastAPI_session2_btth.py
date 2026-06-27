@@ -20,19 +20,19 @@ courses = [
 ]
 
 
-app.get('/health')
+@app.get('/')
 def check_system():
     return {
             "message": "API is running"
             }
     
-app.get('/courses')
+@app.get('/courses')
 def get_courses():
     return {
         'data': courses
     }
     
-app.get('/courses/{course_id}')
+@app.get('/courses/{course_id}')
 def find_course(course_id):
     if course_id <= 0:
         return {'status_code': 400}
